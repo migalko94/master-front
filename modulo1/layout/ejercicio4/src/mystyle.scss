@@ -1,0 +1,80 @@
+@use "base" as *;
+
+body {
+  font-family: sans-serif, Verdana, Tahoma;
+  background-color: $card-background-color;
+  color: $text-color;
+}
+
+.card {
+  display: grid;
+  background-color: $card-color;
+  max-width: 250px;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "imagearea"
+    "textarea"
+    "textarea"
+    "linkarea"
+    "buttonarea";
+}
+
+.card-img img {
+  max-width: 100%;
+  grid-area: imagearea;
+}
+
+.card-text {
+  padding: 10px;
+  h1 {
+    font-size: 18px;
+    font-weight: lighter;
+  }
+
+  grid-area: textarea;
+}
+
+p {
+  font-size: 12px;
+}
+
+.card-button {
+  padding: 1rem;
+  .my-button {
+    border: none;
+    color: $card-color;
+    background-color: $button-color;
+    font-size: 16px;
+    padding: 1rem;
+
+    width: 100%;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  grid-area: buttonarea;
+}
+
+.publication-div {
+  justify-self: right;
+  padding: 10px;
+  a {
+    color: $button-color;
+    grid-area: linkarea;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .card {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .card-text {
+    display: none;
+  }
+}

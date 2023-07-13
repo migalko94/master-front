@@ -1,0 +1,48 @@
+@use "base" as *;
+
+body {
+  font-family: sans-serif, Verdana, Tahoma;
+  padding: 0;
+  margin: 0;
+  header {
+    padding: 1rem;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: $nav-color;
+    justify-content: space-between;
+    .item-menu {
+      color: $text-color;
+
+      padding: 1rem;
+      &:hover {
+        background-color: $nav-color-hover;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .container-menu {
+    flex-direction: column;
+    .item-menu {
+      font-size: 125%;
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  header {
+    display: none;
+  }
+  .container-menu {
+    display: inline-flex;
+    .item-menu {
+      font-size: 200%;
+    }
+  }
+}

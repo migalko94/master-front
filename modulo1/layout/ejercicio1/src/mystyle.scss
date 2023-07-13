@@ -1,0 +1,21 @@
+@use "base" as *;
+
+.box {
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  margin: 2px;
+  border-radius: 8px;
+  font: {
+    size: 12px;
+    family: sans-serif;
+  }
+  color: white;
+}
+
+.color-box-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}

@@ -1,0 +1,27 @@
+$primary-color: red;
+$secondary-color: pink;
+$border-size: 8px;
+$font-family-template: sans-serif;
+$font-size: 12px;
+$box-shadow-theme: -10px -2.5px 5px $secondary-color inset;
+
+@mixin change-color($primary-color) {
+  $percentage: 25%;
+
+  @for $i from 1 through 3 {
+    .box.darken-#{$i} {
+      background-color: darken($primary-color, $percentage * $i);
+    }
+
+    .box.lighten-#{$i} {
+      background-color: lighten($primary-color, $percentage * $i);
+    }
+
+    .box.base-color {
+      background-color: $primary-color;
+    }
+  }
+}
+.container {
+  @include change-color($primary-color);
+}

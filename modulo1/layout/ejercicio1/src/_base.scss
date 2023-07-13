@@ -1,0 +1,27 @@
+@mixin change-color($primary-color) {
+  $percentage: 10%;
+
+  @for $i from 1 through 5 {
+    .box.darken-#{$i} {
+      background-color: darken($primary-color, $percentage * $i);
+    }
+    .box.lighten-#{$i} {
+      background-color: lighten($primary-color, $percentage * $i);
+    }
+    .box.base-color {
+      background-color: $primary-color;
+    }
+  }
+}
+
+.container-1 {
+  @include change-color(red);
+}
+
+.container-2 {
+  @include change-color(blue);
+}
+
+.container-3 {
+  @include change-color(green);
+}

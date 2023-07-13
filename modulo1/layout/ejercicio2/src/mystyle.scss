@@ -1,0 +1,36 @@
+@use "base" as *;
+
+.box {
+  padding: 10px;
+  width: 100px;
+  height: 100px;
+  margin: 2px;
+  border: 1px solid $primary-color;
+  border-radius: $border-size;
+}
+
+.color-box-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.shady {
+  box-shadow: $box-shadow-theme;
+}
+
+body {
+  font: {
+    size: $font-size;
+    family: $font-family-template;
+  }
+
+  & h1 {
+    color: $primary-color;
+  }
+
+  & p {
+    font-style: italic;
+    color: $secondary-color;
+  }
+}
