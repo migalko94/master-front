@@ -1,0 +1,158 @@
+@use "base" as *;
+
+nav {
+  top: 0;
+  position: sticky;
+  align-self: start;
+}
+
+body {
+  font-family: $first-font-family;
+  margin: 0;
+  font-size: 14px;
+  padding: 0;
+
+  .page-title {
+    background-color: $div-title-color;
+    padding: 1rem;
+    color: white;
+    font-size: 18px;
+  }
+
+  .toolbar {
+    display: flex;
+    justify-content: space-between;
+    color: $first-text-color;
+    padding: 0.75rem;
+  }
+
+  .page-container {
+    background: $primary-background-color;
+    height: 90vh;
+    display: grid;
+    grid-template-columns: 0.15fr 0.85fr;
+
+    .menu-title {
+      color: $secondary-background-color;
+      text-align: center;
+      padding-top: 1rem;
+      font-weight: bold;
+    }
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0rem;
+
+    li {
+      list-style: none;
+      padding: 1rem;
+      background-color: $secondary-background-color;
+      border: 0.5px solid black;
+    }
+  }
+
+  main {
+    background: $card-background;
+  }
+
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    margin: 1rem;
+    gap: 0.5rem;
+  }
+}
+
+.card.item {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  padding: 1.4rem;
+  background-color: white;
+  margin: 0 auto;
+  width: 100px;
+  height: 60px;
+  border: 1px solid black;
+
+  img {
+    border-radius: 50%;
+    max-width: 40px;
+  }
+  .member-name {
+    font-size: 14px;
+    font-family: $second-font-family;
+    color: $first-text-color;
+  }
+}
+
+footer {
+  background: $secondary-background-color;
+  padding: 1rem;
+}
+
+@media screen and (max-width: $desktop-resolution) {
+  .menu-title {
+    display: none;
+  }
+
+  body {
+    .toolbar {
+      display: none;
+    }
+
+    nav {
+      align-self: stretch;
+      background: $primary-background-color;
+      ul {
+        gap: 0.5rem;
+        flex-direction: row;
+        justify-content: space-around;
+      }
+    }
+    .page-container {
+      background-color: $primary-background-color;
+      height: fit-content;
+      display: flex;
+      flex-direction: column;
+
+      .list {
+        margin: 0.5rem;
+        gap: 0.5rem;
+
+        .card.item {
+          justify-content: flex-start;
+          flex-direction: row;
+          padding: 2rem;
+          width: 80%;
+
+          img {
+            max-width: 80px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $bigger-desktop-resolution) {
+  .card.item {
+    min-width: 130px;
+    min-height: 50px;
+    gap: 0.75rem;
+    margin: 0.75rem;
+  }
+  nav {
+    top: 0;
+    position: sticky;
+  }
+  img {
+    min-width: 40px;
+  }
+}

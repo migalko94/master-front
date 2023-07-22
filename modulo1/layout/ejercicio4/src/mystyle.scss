@@ -6,6 +6,16 @@ body {
   color: $text-color;
 }
 
+.container-cards {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  margin: 3rem;
+  gap: 3rem;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
 .card {
   display: grid;
   background-color: $card-color;
@@ -68,6 +78,11 @@ p {
 
 @media screen and (max-width: 650px) {
   .card {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .container-cards {
     display: flex;
     flex-wrap: wrap;
   }
