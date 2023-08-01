@@ -11,10 +11,11 @@ const books: Book[] = [
   { title: "Devastación", isRead: true },
 ];
 
-console.log("***Solución 1***");
+console.log("***Solución 1_modificado***");
 function isBookRead(books: Book[], titleToSearch: string): boolean {
   const title = books.find((book) => book.title === titleToSearch);
-  return title ? (title.isRead ? true : false) : false;
+
+  return title ? title.isRead : false;
 }
 
 console.log(isBookRead(books, "Devastación")); // true

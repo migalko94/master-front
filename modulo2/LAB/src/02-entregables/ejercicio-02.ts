@@ -22,14 +22,14 @@ console.log(cBoolean); //<-- [true, false]
 const optionalConcat = (...arr) => {
   return arr.reduce((collection, arr) => {
     for (let element of arr) {
-      collection.push(element);
+      collection = [...collection, element];
     }
 
     return collection;
   }, []);
 };
 
-console.log("***** 2. OPTIONAL CONCAT: *****");
+console.log("***** 2. OPTIONAL CONCAT modificado: *****");
 const AString: string[] = ["hey", "ho"];
 const BNumber: number[] = [1, 2];
 const CBoolean: boolean[] = [true];
