@@ -11,11 +11,13 @@ const books: Book[] = [
   { title: "Devastación", isRead: true },
 ];
 
-console.log("***Solución 1_modificado***");
+console.log(
+  "***Solución 1_modificado - no puede leer propiedades de undefined***"
+);
 function isBookRead(books: Book[], titleToSearch: string): boolean {
   const title = books.find((book) => book.title === titleToSearch);
 
-  return title ? title.isRead : false;
+  return title?.isRead ?? false;
 }
 
 console.log(isBookRead(books, "Devastación")); // true
