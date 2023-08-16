@@ -1,0 +1,14 @@
+$title-color: teal;
+$font-color: whitesmoke;
+
+h1 {
+  font-family: "Gill Sans", "Trebuchet MS";
+  background-color: $title-color;
+  color: $font-color;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+img {
+  width: 200px;
+}

@@ -1,0 +1,14 @@
+$title-color: cadetblue;
+$font-color: whitesmoke;
+
+h1 {
+  font-family: Verdana, Tahoma, sans-serif;
+  border-radius: 8px;
+  padding: 1rem;
+  background-color: $title-color;
+  color: $font-color;
+}
+
+img {
+  width: 200px;
+}
