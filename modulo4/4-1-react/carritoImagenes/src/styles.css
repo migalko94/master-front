@@ -1,0 +1,52 @@
+* {
+  font-family: "Roboto Serif", serif;
+}
+
+.pet-collection {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.pet-collection img {
+  max-width: 200px;
+}
+
+.cart-core {
+  margin: 1rem;
+}
+
+.cart-title {
+  padding: 1rem;
+}
+
+.cart-item p {
+  font-size: 10px;
+}
+
+.card {
+  margin: 1rem;
+  gap: 0.5rem;
+}
+
+.cart-items-div img {
+  max-width: 30px;
+  max-height: 30px;
+}
+
+.nav-div {
+  display: flex;
+  font-size: 20px;
+}
+
+.my-layout {
+  display: grid;
+  grid-template-columns: 1fr 0.25fr 1fr;
+}
+
+img {
+  width: 150px;
+  height: 150px;
+  border-radius: 8px;
+}

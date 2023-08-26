@@ -1,0 +1,23 @@
+* {
+  font-family: "Roboto Serif", serif;
+}
+
+h1 {
+  margin: 1rem;
+  font-size: 15px;
+  padding: 0.5rem;
+}
+
+.form-div {
+  margin: 1rem;
+}
+
+img {
+  width: 80px;
+  height: 80px;
+}
+
+.search-button-container {
+  display: flex;
+  padding: 0.5rem;
+}
