@@ -1,0 +1,85 @@
+<div class="maxImageContainer">
+  <img
+    src="{{ showedImage.src }}"
+    alt="{{ showedImage.title }}"
+    width="{{ width }}"
+    height="{{ height }}"
+  />
+</div>
+
+<div class="display-mini-img-container">
+  <button
+    type="button"
+    mat-raised-button
+    color="basic"
+    (click)="previousSetOfImg()"
+    [disabled]="firstEl === 0"
+  >
+    <mat-icon>navigate_before</mat-icon>
+  </button>
+  <div
+    class="miniImagesContainer"
+    *ngFor="let image of images | slice : firstEl : firstEl + showedEl"
+  >
+    <img
+      (click)="selectImage(image)"
+      [src]="image.src"
+      alt="{{ image.title }}"
+      [ngClass]="{ 'border-selected': this.showedImage.id === this.image.id }"
+    />
+  </div>
+  <button
+    type="button"
+    mat-raised-button
+    color="basic"
+    (click)="nextSetOfImg()"
+    [disabled]="firstEl + showedEl >= images.length - 1"
+  >
+    <mat-icon>navigate_next</mat-icon>
+  </button>
+</div>
+
+<div class="button-container">
+  <button
+    type="button"
+    mat-raised-button
+    color="primary"
+    (click)="previous()"
+    [disabled]="this.showedImage.id <= 1"
+  >
+    anterior
+  </button>
+  <button
+    type="button"
+    mat-raised-button
+    color="accent"
+    (click)="next()"
+    [disabled]="this.showedImage.id >= this.images.length"
+  >
+    siguiente
+  </button>
+  <button type="button" mat-raised-button color="warn" (click)="increaseImg()">
+    aumentar
+  </button>
+  <button type="button" mat-raised-button color="primary" (click)="reduceImg()">
+    disminuir
+  </button>
+  <button
+    type="button"
+    mat-raised-button
+    color="accent"
+    (click)="play()"
+    [disabled]="isTimerOn"
+  >
+    play
+  </button>
+  <button
+    type="button"
+    mat-raised-button
+    color="warn"
+    (click)="stop()"
+    [disabled]="!isTimerOn"
+  >
+    stop
+  </button>
+</div>

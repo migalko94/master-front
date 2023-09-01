@@ -1,13 +1,19 @@
 import { MemberEntity } from "./api.model";
 
-export const getMembers = (organization: string): Promise<MemberEntity[]> => {
+export const getMembers = (
+  organization: string
+): Promise<MemberEntity[] | []> => {
   return fetch(`https://api.github.com/orgs/${organization}/members`)
     .then((response) => {
-      if (response.ok) {
-        return response.json();
-      } else {
-        alert("No se pudo completar la petición");
+      if (!response.ok) {
+        alert("No se hallaron resultados");
+        return [];
       }
+
+      return response.json();
     })
-    .then((data) => data);
+    .then((data) => data)
+    .catch((error) => {
+      console.log(error);
+    });
 };

@@ -1,0 +1,41 @@
+.maxImageContainer {
+  img {
+    margin: 3rem;
+  }
+}
+
+.miniImagesContainer {
+  margin: 2rem;
+
+  display: inline;
+  img {
+    width: 70px;
+    height: 70px;
+  }
+
+  img:hover {
+    cursor: pointer;
+  }
+}
+
+.button-container {
+  border-radius: 8px;
+  background-color: lavender;
+  padding: 2rem;
+  margin: 2rem;
+  display: inline-flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+button {
+  font-size: 14px;
+}
+
+.border-selected {
+  border: 5px solid darkorchid;
+}
+
+.display-mini-img-container {
+  margin: 2rem;
+}

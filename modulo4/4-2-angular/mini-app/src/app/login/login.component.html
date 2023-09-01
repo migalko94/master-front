@@ -1,0 +1,32 @@
+<form [formGroup]="loginForm">
+  <mat-form-field>
+    <mat-hint align="start">master8@lemoncode.net</mat-hint>
+    <mat-label>Enter your email</mat-label>
+    <input [formControl]="emailControl" matInput />
+    <mat-error *ngIf="emailControl.invalid">{{ emailError() }}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-hint align="start">12345678</mat-hint>
+    <mat-label>Enter your password</mat-label>
+    <input
+      [formControl]="passwordControl"
+      matInput
+      [type]="hide ? 'password' : 'text'"
+    />
+    <button
+      mat-icon-button
+      matSuffix
+      (click)="hide = !hide"
+      [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="hide"
+    >
+      <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+    </button>
+    <mat-error *ngIf="passwordControl.invalid">{{ passwordError() }}</mat-error>
+  </mat-form-field>
+
+  <button type="button" mat-raised-button color="primary" (click)="logUser()">
+    Login
+  </button>
+</form>

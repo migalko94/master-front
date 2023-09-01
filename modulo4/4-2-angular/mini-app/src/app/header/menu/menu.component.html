@@ -1,0 +1,8 @@
+<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="menu">
+  <mat-icon>menu</mat-icon>
+
+  <mat-menu #menu="matMenu">
+    <app-private-menu></app-private-menu>
+    <app-public-menu></app-public-menu>
+  </mat-menu>
+</button>

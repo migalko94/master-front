@@ -1,0 +1,16 @@
+<p>
+  <mat-toolbar>
+    <app-menu></app-menu>
+    <span>MiniApp</span>
+    <img src="assets/images/logo_1.png" alt="logo lemoncode" />
+    <span class="spacer"></span>
+    <span *ngIf="checkUser()">Welcome {{ auth.getUsername() }}!</span>
+    <span class="spacer"></span>
+
+    <span *ngIf="checkUser()">
+      <button mat-menu-item (click)="logOutButtonHandler()">
+        <mat-icon>exit_to_app</mat-icon>Exit
+      </button>
+    </span>
+  </mat-toolbar>
+</p>
