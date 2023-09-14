@@ -1,13 +1,18 @@
-import { HotelEntityApi } from './character-collection.api-model';
-import { mockHotelCollection } from './character-collection.mock-data';
+import Axios from 'axios';
+import { CharacterEntityApi } from './character-collection.api-model';
 
-let hotelCollection = [...mockHotelCollection];
+const CHARACTER_URL = 'http://localhost:3000/characters';
 
-export const getHotelCollection = async (): Promise<HotelEntityApi[]> => {
-  return hotelCollection;
+export const getCharacterCollection = async (): Promise<
+  CharacterEntityApi[]
+> => {
+  const { data } = await Axios.get<CharacterEntityApi[]>(CHARACTER_URL);
+
+  return data;
 };
 
-export const deleteHotel = async (id: string): Promise<boolean> => {
-  hotelCollection = hotelCollection.filter((h) => h.id !== id);
+// json-server delete issue: It deletes all collection instead of single one.
+export const deleteCharacter = async (id: string): Promise<boolean> => {
+  await Axios.delete(`${CHARACTER_URL}/${id}`);
   return true;
 };

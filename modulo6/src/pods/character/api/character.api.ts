@@ -1,15 +1,20 @@
-import { Hotel } from './character.api-model';
-import { Lookup } from 'common/models';
-import { mockCities, mockHotelCollection } from './character.mock-data';
+import Axios from 'axios';
 
-export const getHotel = async (id: string): Promise<Hotel> => {
-  return mockHotelCollection.find((h) => h.id === id);
+import { Character } from './character.api-model';
+
+const CHARACTER_URL = 'http://localhost:3000/characters/';
+
+export const getCharacter = async (id: string): Promise<Character> => {
+  const { data } = await Axios.get<Character>(`${CHARACTER_URL}${id}`);
+
+  return data;
 };
 
-export const getCities = async (): Promise<Lookup[]> => {
-  return mockCities;
-};
-
-export const saveHotel = async (hotel: Hotel): Promise<boolean> => {
+export const saveCharacter = async (character: Character): Promise<boolean> => {
+  if (character.id) {
+    await Axios.put<Character>(`${CHARACTER_URL}/${character.id}`, character);
+  } else {
+    await Axios.post<Character>(CHARACTER_URL, character);
+  }
   return true;
 };

@@ -1,43 +1,42 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import * as api from './api';
-import { createEmptyHotel, Hotel } from './character.vm';
-import { mapHotelFromApiToVm, mapHotelFromVmToApi } from './character.mappers';
-import { Lookup } from 'common/models';
+import { createEmptyCharacter, Character } from './character.vm';
+import {
+  mapCharacterFromApiToVm,
+  mapCharacterFromVmToApi,
+} from './character.mappers';
+
 import { HotelComponent } from './character.component';
 
 export const HotelContainer: React.FunctionComponent = (props) => {
-  const [hotel, setHotel] = React.useState<Hotel>(createEmptyHotel());
-  const [cities, setCities] = React.useState<Lookup[]>([]);
+  const [character, setCharacter] = React.useState<Character>(
+    createEmptyCharacter()
+  );
+
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
-  const handleLoadCityCollection = async () => {
-    const apiCities = await api.getCities();
-    setCities(apiCities);
-  };
-
-  const handleLoadHotel = async () => {
-    const apiHotel = await api.getHotel(id);
-    setHotel(mapHotelFromApiToVm(apiHotel));
+  const handleLoadCharacter = async () => {
+    const apiCharacter = await api.getCharacter(id);
+    setCharacter(mapCharacterFromApiToVm(apiCharacter));
   };
 
   React.useEffect(() => {
     if (id) {
-      handleLoadHotel();
+      handleLoadCharacter();
     }
-    handleLoadCityCollection();
   }, []);
 
-  const handleSave = async (hotel: Hotel) => {
-    const apiHotel = mapHotelFromVmToApi(hotel);
-    const success = await api.saveHotel(apiHotel);
+  const handleSave = async (character: Character) => {
+    const apiCharacter = mapCharacterFromVmToApi(character);
+    const success = await api.saveHotel(apiCharacter);
     if (success) {
       navigate(-1);
     } else {
-      alert('Error on save hotel');
+      alert('Error on save character');
     }
   };
 
-  return <HotelComponent hotel={hotel} cities={cities} onSave={handleSave} />;
+  return <HotelComponent character={character} onSave={handleSave} />;
 };
