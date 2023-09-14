@@ -1,9 +1,12 @@
 import * as React from 'react';
-import { AppLayout } from 'layouts';
-import { HotelCollectionContainer } from 'pods/character-collection';
 
-export const HotelCollectionScene = () => (
+import { AppLayout } from 'layouts';
+import { CharacterCollectionContainer } from 'pods/character-collection';
+import { PaginationContainer } from 'pods/character-collection/pagination';
+
+export const CharacterCollectionScene = () => (
   <AppLayout>
-    <HotelCollectionContainer />
+    <CharacterCollectionContainer />
+    <PaginationContainer />
   </AppLayout>
 );

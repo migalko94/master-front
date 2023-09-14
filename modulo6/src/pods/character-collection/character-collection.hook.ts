@@ -1,19 +1,25 @@
 import * as React from 'react';
-import { HotelEntityVm } from './character-collection.vm';
-import { getHotelCollection } from './api';
-import { mapFromApiToVm } from './character-collection.mapper';
+
 import { mapToCollection } from 'common/mappers';
+import { Context } from 'core/context';
+import {
+  viewModelCharacterOnList,
+  getCharacterCollection,
+  mapFromApiToVm,
+} from '../../pods/character-collection';
 
-export const useHotelCollection = () => {
-  const [hotelCollection, setHotelCollection] = React.useState<HotelEntityVm[]>(
-    []
-  );
+export const useCharacterCollection = () => {
+  const [VMListOfCharacters, setVMListOfCharacters] = React.useState<
+    viewModelCharacterOnList[]
+  >([]);
 
-  const loadHotelCollection = () => {
-    getHotelCollection().then((result) =>
-      setHotelCollection(mapToCollection(result, mapFromApiToVm))
+  const { currentPage } = React.useContext(Context);
+
+  const loadCharacterCollection = () => {
+    getCharacterCollection(currentPage).then((result) =>
+      setVMListOfCharacters(mapToCollection(result, mapFromApiToVm))
     );
   };
 
-  return { hotelCollection, loadHotelCollection };
+  return { VMListOfCharacters, loadCharacterCollection };
 };

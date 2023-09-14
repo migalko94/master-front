@@ -1,6 +1,8 @@
 import React from 'react';
+
 import { ThemeProviderComponent } from 'core/theme';
 import { RouterComponent } from 'core/router';
+import { ContextProvider } from 'core/context/context.provider';
 
 const App: React.FunctionComponent = () => {
   return <RouterComponent />;
@@ -9,7 +11,9 @@ const App: React.FunctionComponent = () => {
 const AppProviders: React.FunctionComponent = () => {
   return (
     <ThemeProviderComponent>
-      <App />
+      <ContextProvider>
+        <App />
+      </ContextProvider>
     </ThemeProviderComponent>
   );
 };

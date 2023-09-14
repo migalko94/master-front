@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { AppLayout } from 'layouts';
-import { HotelContainer } from 'pods/character';
 
-export const HotelScene = () => (
+import { AppLayout } from 'layouts';
+import { CharacterContainer } from 'pods/character-detail';
+
+export const CharacterScene = () => (
   <AppLayout>
-    <HotelContainer />
+    <CharacterContainer />
   </AppLayout>
 );

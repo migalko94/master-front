@@ -1,8 +1,5 @@
-export interface HotelEntityVm {
-  id: string;
-  picture: string;
+export interface viewModelCharacterOnList {
+  id: number;
   name: string;
-  description: string;
-  rating: number;
-  address: string;
+  image: string;
 }

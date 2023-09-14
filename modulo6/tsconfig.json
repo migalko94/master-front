@@ -22,5 +22,5 @@
       "common-app": ["common-app"]
     }
   },
-  "include": ["./src/**/*", "src/pods/character/api/.api-model.ts"]
+  "include": ["./src/**/*", "src/pods/character-detail/api/.api-model.ts"]
 }
