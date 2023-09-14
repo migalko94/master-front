@@ -7,9 +7,9 @@ import {
   mapCharacterFromVmToApi,
 } from './character.mappers';
 
-import { HotelComponent } from './character.component';
+import { CharacterComponent } from './character.component';
 
-export const HotelContainer: React.FunctionComponent = (props) => {
+export const CharacterContainer: React.FunctionComponent = () => {
   const [character, setCharacter] = React.useState<Character>(
     createEmptyCharacter()
   );
@@ -18,19 +18,20 @@ export const HotelContainer: React.FunctionComponent = (props) => {
   const navigate = useNavigate();
 
   const handleLoadCharacter = async () => {
-    const apiCharacter = await api.getCharacter(id);
-    setCharacter(mapCharacterFromApiToVm(apiCharacter));
+    if (id) {
+      const apiCharacter = await api.getCharacter(id);
+      setCharacter(mapCharacterFromApiToVm(apiCharacter));
+    }
   };
 
   React.useEffect(() => {
-    if (id) {
-      handleLoadCharacter();
-    }
+    handleLoadCharacter();
   }, []);
 
   const handleSave = async (character: Character) => {
     const apiCharacter = mapCharacterFromVmToApi(character);
-    const success = await api.saveHotel(apiCharacter);
+    const success = await api.saveCharacter(apiCharacter);
+
     if (success) {
       navigate(-1);
     } else {
@@ -38,5 +39,5 @@ export const HotelContainer: React.FunctionComponent = (props) => {
     }
   };
 
-  return <HotelComponent character={character} onSave={handleSave} />;
+  return <CharacterComponent character={character} onSave={handleSave} />;
 };

@@ -1,3 +1,13 @@
+interface Origin {
+  name: string;
+  url: string;
+}
+
+interface Location {
+  name: string;
+  url: string;
+}
+
 export interface Character {
   id: string;
   name: string;
@@ -5,8 +15,8 @@ export interface Character {
   species: string;
   type: string;
   gender: string;
-  origin: string;
-  location: string;
+  origin: Origin;
+  location: Location;
   image: string;
   episode: string[];
   url: string;
@@ -21,8 +31,14 @@ export const createEmptyCharacter = (): Character => ({
   species: '',
   type: '',
   gender: '',
-  origin: '',
-  location: '',
+  origin: {
+    name: '',
+    url: '',
+  },
+  location: {
+    name: '',
+    url: '',
+  },
   image: '',
   episode: [],
   url: '',

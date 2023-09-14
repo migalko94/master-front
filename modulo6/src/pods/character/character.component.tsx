@@ -9,11 +9,10 @@ import * as classes from './character.styles';
 
 interface Props {
   character: Character;
-
   onSave: (character: Character) => void;
 }
 
-export const HotelComponent: React.FunctionComponent<Props> = (props) => {
+export const CharacterComponent: React.FunctionComponent<Props> = (props) => {
   const { character, onSave } = props;
 
   return (
@@ -26,16 +25,26 @@ export const HotelComponent: React.FunctionComponent<Props> = (props) => {
       {() => (
         <Form className={classes.root}>
           <TextFieldComponent name="name" label="Name" />
+          <TextFieldComponent name="image" label="Image" />
           <TextFieldComponent name="status" label="Status" />
           <TextFieldComponent name="species" label="Species" />
           <TextFieldComponent name="type" label="Type" />
           <TextFieldComponent name="gender" label="Gender" />
-          <TextFieldComponent name="origin" label="Origin" />
-          <TextFieldComponent name="location" label="Location" />
-          <TextFieldComponent name="status" label="Status" />
-          <TextFieldComponent name="episode" label="Episode" />
+          <TextFieldComponent name="origin.name" label="Origin" />
+          <TextFieldComponent name="location.name" label="Location" />
+          <TextFieldComponent
+            name="episode"
+            label="episode"
+            multiline={true}
+            rows={5}
+          />
           <TextFieldComponent name="created" label="Created" />
-          <TextFieldComponent name="bestsentences" label="BestSentences" />
+          <TextFieldComponent
+            name="bestSentences"
+            label="bestSentences"
+            multiline={true}
+            rows={5}
+          />
 
           <Button type="submit" variant="contained" color="primary">
             Save

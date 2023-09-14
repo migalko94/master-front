@@ -4,8 +4,6 @@ import CardHeader from '@mui/material/CardHeader/CardHeader';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import CardActions from '@mui/material/CardActions';
-import Typography from '@mui/material/Typography';
-import Avatar from '@mui/material/Avatar/Avatar';
 import IconButton from '@mui/material/IconButton/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -18,7 +16,7 @@ interface Props {
   onDelete: (id: string) => void;
 }
 
-export const HotelCard: React.FunctionComponent<Props> = (props) => {
+export const CharacterCard: React.FunctionComponent<Props> = (props) => {
   const { character, onEdit, onDelete } = props;
 
   return (
