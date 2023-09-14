@@ -2,8 +2,10 @@ import React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
-import AccountCircle from '@mui/icons-material/AccountCircle';
+import HomeIcon from '@mui/icons-material/Home';
 import * as classes from './app.layout.styles';
+import { linkRoutes } from 'core/router';
+import { Link } from 'react-router-dom';
 
 interface Props {
   children: React.ReactNode;
@@ -16,9 +18,12 @@ export const AppLayout: React.FC<Props> = (props) => {
     <>
       <AppBar position="static">
         <Toolbar variant="dense">
-          <IconButton color="inherit" aria-label="Menu">
-            <AccountCircle />
-          </IconButton>
+          <Link to={linkRoutes.characterCollection}>
+            <IconButton color="default" aria-label="Menu">
+              <HomeIcon />
+            </IconButton>
+          </Link>
+          <span> Rick and Morty API Exercise</span>
         </Toolbar>
       </AppBar>
       <main className={classes.content}>{children}</main>
