@@ -1,2 +1,1 @@
-export * from "./order-detail";
-export * from "./header";
+export * from "./order-list";

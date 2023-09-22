@@ -2,27 +2,16 @@ import React from "react";
 
 import { Checkbox, TableCell, TableRow, TextField } from "@mui/material";
 
-import { Context, VMOrderInfo } from "@/core";
+import { VMOrderInfo } from "@/core";
 
 interface Props {
   item: VMOrderInfo;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handlePrice: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const OrderDetailRow: React.FC<Props> = (props) => {
-  const { item } = props;
-
-  const { addToQueue, removeFromQueue, isInQueue, setPrice } =
-    React.useContext(Context);
-
-  const [checked, setChecked] = React.useState(isInQueue(item));
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setChecked(e.target.checked);
-    checked ? removeFromQueue(item) : addToQueue(item);
-  };
-
-  const handlePrice = (e: React.ChangeEvent<HTMLInputElement>) =>
-    setPrice(item, Number(e.target.value));
+export const ListRowComponent: React.FC<Props> = (props) => {
+  const { item, handleChange, handlePrice } = props;
 
   return (
     <>

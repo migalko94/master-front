@@ -7,7 +7,19 @@ import { Context } from "@/core";
 export const ValidationComponent: React.FC = () => {
   const [, setChecked] = React.useState<boolean>(null);
 
-  const { setValidation } = React.useContext(Context);
+  const { order, setOrder } = React.useContext(Context);
+
+  const setValidation = (isValid: boolean) => {
+    const updatedOrder = order.map((orderItem) => {
+      if (orderItem.selected === true) {
+        return { ...orderItem, validation: isValid };
+      } else {
+        return orderItem;
+      }
+    });
+
+    return setOrder(updatedOrder);
+  };
 
   const handleCheck = (checked: boolean) => {
     setChecked(checked);

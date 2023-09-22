@@ -1,3 +1,1 @@
-export * from "./order-detail.scene";
-
-export * from "./header.scene";
+export * from "./order-list.scene";

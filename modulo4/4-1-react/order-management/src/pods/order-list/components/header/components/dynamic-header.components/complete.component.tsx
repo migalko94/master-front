@@ -3,10 +3,16 @@ import React from "react";
 import { Alert, Box, Button, Collapse, IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
-import { Context } from "@/core";
+import { Context, VMOrderInfo } from "@/core";
 
-export const CompleteComponent: React.FC = () => {
-  const { getPercentage, order } = React.useContext(Context);
+interface Props {
+  getPercentage: (order: VMOrderInfo[]) => number;
+}
+
+export const CompleteComponent: React.FC<Props> = (props) => {
+  const { getPercentage } = props;
+
+  const { order } = React.useContext(Context);
 
   const [open, setOpen] = React.useState(false);
 

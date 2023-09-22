@@ -1,8 +1,8 @@
 import React from "react";
+
 import { Grid, Paper, styled } from "@mui/material";
 
-import { Context } from "@/core";
-
+import { VMOrderInfo } from "@/core";
 import { CompleteComponent } from "./dynamic-header.components";
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -13,8 +13,15 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-export const DynamicHeader: React.FC = () => {
-  const { order, getTotalPrice, getPercentage } = React.useContext(Context);
+interface Props {
+  order: VMOrderInfo[];
+  getTotalPrice: (order: VMOrderInfo[]) => number;
+  getPercentage: (order: VMOrderInfo[]) => number;
+}
+
+export const DynamicHeaderComponent: React.FC<Props> = (props) => {
+  const { getTotalPrice, getPercentage, order } = props;
+
   return (
     <>
       <Grid item xs={2}>
@@ -25,7 +32,7 @@ export const DynamicHeader: React.FC = () => {
       </Grid>
 
       <Grid item xs={2}>
-        <CompleteComponent />
+        <CompleteComponent getPercentage={getPercentage} />
       </Grid>
     </>
   );
